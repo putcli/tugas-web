@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas Individu - Putri Andina 261402036</title>
     <style>
-        /* CSS Reset & Dasar */
+        /* CSS Reset & Base Setup */
         * {
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #fdfbf7; /* Latar belakang lembut */
+            background-color: #fdfbf7;
             color: #4a4a4a;
             margin: 0;
             padding: 30px 15px;
         }
 
-        /* Tabel Utama Layout sesuai Tugas */
+        /* Main Table Container */
         table.web-container {
             width: 100%;
             max-width: 950px;
@@ -39,43 +43,27 @@
 
         /* 1. Header */
         .header-section {
-            /* Style Tambahan untuk Gambar Header */
-        .header-section {
-            padding: 0; /* Menghilangkan padding agar gambar full sampai pinggir */
+            padding: 0;
             background-color: transparent;
         }
 
         .header-image {
-            width: 100%;          /* Gambar memenuhi lebar header */
-            height: auto;         /* Tinggi gambar menyesuaikan proporsi */
-            max-height: 250px;    /* Batas tinggi maksimal (bisa disesuaikan) */
-            object-fit: cover;    /* Memastikan gambar terpotong rapi tanpa gepeng */
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            object-fit: cover;
             display: block;
         }
-        
-            background-color: #fef08a; /* Kuning pastel utama */
-            color: #713f12;
-            text-align: center;
-            padding: 35px 20px;
-            border-bottom: 2px solid #fde047;
-        }
-        .header-section h1 {
-            margin: 0;
-            font-size: 28px;
-            letter-spacing: 1px;
-        }
-        .header-section p {
-            margin: 8px 0 0 0;
-            font-size: 15px;
-            opacity: 0.85;
-        }
 
-        /* 2. Main Menu (Link Navigation) */
+        /* 2. Main Menu (Navigation Link) */
         .menu-section {
-            background-color: #fef9c3; /* Kuning pastel terang */
+            background-color: #fef9c3;
             text-align: center;
             padding: 12px;
             border-bottom: 2px solid #fef08a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .menu-section a {
             color: #854d0e;
@@ -95,7 +83,7 @@
         /* 3. Sidebar */
         .sidebar-section {
             width: 28%;
-            background-color: #fffbeb; /* Pastel krem-kuning */
+            background-color: #fffbeb;
             border-right: 2px solid #fef3c7;
         }
         .sidebar-section h3 {
@@ -130,22 +118,88 @@
             line-height: 1.5;
         }
 
-        /* 4. Isi Konten Web */
+        /* 4. Web Content Section */
         .content-section {
             width: 72%;
             background-color: #ffffff;
-            padding: 25px;
+            padding: 25px 30px;
         }
+        
+        .section-block {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #fef3c7;
+        }
+        .section-block:last-child {
+            border-bottom: none;
+        }
+
         .content-section h1 { color: #713f12; font-size: 24px; margin-top: 0; }
-        .content-section h2 { color: #854d0e; font-size: 20px; border-left: 4px solid #fde047; padding-left: 10px; }
-        .content-section h3 { color: #a16207; font-size: 16px; }
-        .content-section p { line-height: 1.6; color: #525252; }
+        .content-section h2 { 
+            color: #854d0e; 
+            font-size: 20px; 
+            border-left: 4px solid #fde047; 
+            padding-left: 10px; 
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+        .content-section h3 { color: #a16207; font-size: 16px; margin-top: 15px; }
+        .content-section p { line-height: 1.6; color: #525252; margin-top: 0; }
         
         .content-list {
             background-color: #fffde7;
             padding: 15px 15px 15px 35px;
             border-radius: 10px;
             border: 1px dashed #fde047;
+            margin-bottom: 0;
+        }
+
+        /* Image Gallery Grid Styling */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .gallery-item {
+            text-align: center;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #fef08a;
+            transition: transform 0.2s ease;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.04);
+        }
+        .gallery-caption {
+            font-size: 12px;
+            color: #854d0e;
+            margin-top: 4px;
+        }
+
+        /* Contact Box Styling */
+        .contact-box {
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .contact-box p {
+            margin: 6px 0;
+  
+        }
+        .contact-box a {
+        color: #854d0e;
+        text-decoration: underline;
+        font-weight: 500;
+        }
+        .contact-box a:hover {
+        color: #713f12;
         }
 
         /* 5. Footer */
@@ -163,15 +217,14 @@
 <body>
 
     <table class="web-container">
-        <!-- HEADER (GAMBAR ATAU TULISAN) -->
+        <!-- HEADER -->
         <tr>
             <td colspan="2" class="header-section">
-                <!-- Tag <img> untuk menampilkan foto header -->
                 <img src="https://i.pinimg.com/1200x/19/f8/c1/19f8c1f5671ea6d85fbbac5eb4ac7082.jpg" alt="Pompompurin" class="header-image">
             </td>
         </tr>
 
-        <!-- MAIN MENU (LINK) -->
+        <!-- MAIN MENU -->
         <tr>
             <td colspan="2" class="menu-section">
                 <a href="#home">Home</a>
@@ -181,7 +234,7 @@
             </td>
         </tr>
 
-        <!-- ISI LAYOUT (SIDEBAR & ISI KONTEN WEB) -->
+        <!-- LAYOUT CONTENT -->
         <tr>
             <!-- SIDEBAR -->
             <td class="sidebar-section">
@@ -197,21 +250,58 @@
                 </div>
             </td>
 
-            <!-- ISI KONTEN WEB -->
+            <!-- WEB CONTENT -->
             <td class="content-section">
-                <h1>Putri Andina</h1>
-                <p>1st Sem IT Student @ USU | Video Editor</p>
                 
-                <h2>What I Do</h2>
-                <p>I’m a first-semester IT student at Universitas Sumatera Utara who loves exploring technology, graphic design, and editing videos in my free time!</p>
-                
-                <h3>Key Skills & Main Interests:</h3>
-                <ul class="content-list">
-                    <li>Web Development Basics (HTML5 & CSS3)</li>
-                    <li>Video Editing & Content Creation</li>
-                    <li>Graphic Design & Visual Arts</li>
-                    <li>Time Management & Teamwork</li>
-                </ul>
+                <!-- SECTION: HOME -->
+                <div id="home" class="section-block">
+                    <h1>Putri Andina</h1>
+                    <p>1st Sem IT Student @ USU | Video Editor</p>
+                </div>
+
+                <!-- SECTION: ABOUT -->
+                <div id="about" class="section-block">
+                    <h2>About</h2>
+                    <p>I am a first-semester Information Technology student at Universitas Sumatera Utara and an alumni of SMA Negeri 1 Medan.</p>
+                    <p>Currently, I am focusing on exploring web development, graphic design, and video editing. Outside of classes, I really enjoy playing musical instruments, as well as spending quality time playing with my younger siblings at home :D</p>
+                    
+                    <h3>Key Skills & Main Interests:</h3>
+                    <ul class="content-list">
+                        <li>Web Development Basics (HTML5 & CSS3)</li>
+                        <li>Video Editing & Content Creation</li>
+                        <li>Time Management & Teamwork</li>
+                        <li>Graphic Design & Visual Arts</li>
+                    </ul>
+                </div>
+
+                <!-- SECTION: GALLERY -->
+                <div id="gallery" class="section-block">
+                    <h2>Gallery</h2>
+                    <p>Bits and pieces of what I love to do <3</p>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="imagea/coding.jpeg" alt="Coding">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="imagea/edit.jpeg" alt="Editing">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="imagea/valo.jpeg" alt="Valorant">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION: CONTACT -->
+                <div id="contact" class="section-block">
+                    <h2>Contact Me</h2>
+                    <p>Feel free to get in touch with me!</p>
+                    <div class="contact-box">
+                        <p>📧 <b>Email :</b> <a href="mailto:putriandina@students.usu.ac.id">putriandina@students.usu.ac.id</a></p>
+                        <p>📷 <b>Instagram :</b> <a href="https://www.instagram.com/putriiandinaa" target="_blank">instagram.com/putriiandinaa</a></p>
+                        <p>💻 <b>GitHub :</b> <a href="https://github.com/putcli" target="_blank">github.com/putcli</a></p>
+                    </div>
+                </div>
+
             </td>
         </tr>
 
