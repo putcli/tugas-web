@@ -2,315 +2,141 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas Individu - Putri Andina 261402036</title>
-    <style>
-        /* CSS Reset & Base Setup */
-        * {
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: #fdfbf7;
-            color: #4a4a4a;
-            margin: 0;
-            padding: 30px 15px;
-        }
-
-        /* Main Table Container */
-        table.web-container {
-            width: 100%;
-            max-width: 950px;
-            margin: 0 auto;
-            border-collapse: separate;
-            border-spacing: 0;
-            background-color: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 2px solid #fef3c7;
-        }
-
-        td {
-            padding: 20px;
-            vertical-align: top;
-        }
-
-        /* 1. Header */
-        .header-section {
-            padding: 0;
-            background-color: transparent;
-        }
-
-        .header-image {
-            width: 100%;
-            height: auto;
-            max-height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* 2. Main Menu (Navigation Link) */
-        .menu-section {
-            background-color: #fef9c3;
-            text-align: center;
-            padding: 12px;
-            border-bottom: 2px solid #fef08a;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .menu-section a {
-            color: #854d0e;
-            text-decoration: none;
-            font-weight: 600;
-            margin: 0 12px;
-            padding: 6px 16px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .menu-section a:hover {
-            background-color: #fef08a;
-            color: #713f12;
-        }
-
-        /* 3. Sidebar */
-        .sidebar-section {
-            width: 28%;
-            background-color: #fffbeb;
-            border-right: 2px solid #fef3c7;
-        }
-        .sidebar-section h3 {
-            color: #854d0e;
-            margin-top: 0;
-            font-size: 18px;
-            border-bottom: 2px solid #fef08a;
-            padding-bottom: 8px;
-        }
-        .sidebar-section ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .sidebar-section li {
-            margin-bottom: 10px;
-        }
-        .sidebar-section a {
-            color: #a16207;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .sidebar-section a:hover {
-            text-decoration: underline;
-        }
-        .sidebar-card {
-            background-color: #ffffff;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #fde68a;
-            margin-top: 15px;
-            font-size: 13px;
-            line-height: 1.5;
-        }
-
-        /* 4. Web Content Section */
-        .content-section {
-            width: 72%;
-            background-color: #ffffff;
-            padding: 25px 30px;
-        }
-        
-        .section-block {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #fef3c7;
-        }
-        .section-block:last-child {
-            border-bottom: none;
-        }
-
-        .content-section h1 { color: #713f12; font-size: 24px; margin-top: 0; }
-        .content-section h2 { 
-            color: #854d0e; 
-            font-size: 20px; 
-            border-left: 4px solid #fde047; 
-            padding-left: 10px; 
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-        .content-section h3 { color: #a16207; font-size: 16px; margin-top: 15px; }
-        .content-section p { line-height: 1.6; color: #525252; margin-top: 0; }
-        
-        .content-list {
-            background-color: #fffde7;
-            padding: 15px 15px 15px 35px;
-            border-radius: 10px;
-            border: 1px dashed #fde047;
-            margin-bottom: 0;
-        }
-
-        /* Image Gallery Grid Styling */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .gallery-item {
-            text-align: center;
-        }
-        .gallery-grid img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #fef08a;
-            transition: transform 0.2s ease;
-        }
-        .gallery-grid img:hover {
-            transform: scale(1.04);
-        }
-        .gallery-caption {
-            font-size: 12px;
-            color: #854d0e;
-            margin-top: 4px;
-        }
-
-        /* Contact Box Styling */
-        .contact-box {
-            background-color: #fffbeb;
-            border: 1px solid #fde68a;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
-        .contact-box p {
-            margin: 6px 0;
-  
-        }
-        .contact-box a {
-        color: #854d0e;
-        text-decoration: underline;
-        font-weight: 500;
-        }
-        .contact-box a:hover {
-        color: #713f12;
-        }
-
-        /* 5. Footer */
-        .footer-section {
-            background-color: #fef08a;
-            color: #713f12;
-            text-align: center;
-            padding: 15px;
-            font-size: 13px;
-            font-weight: 500;
-            border-top: 2px solid #fde047;
-        }
-    </style>
 </head>
-<body>
+<body bgcolor="#fdfbf7" text="#4a4a4a">
 
-    <table class="web-container">
+    <table border="1" cellpadding="15" cellspacing="0" align="center" width="950" bgcolor="#ffffff">
+        
         <!-- HEADER -->
         <tr>
-            <td colspan="2" class="header-section">
-                <img src="https://i.pinimg.com/1200x/19/f8/c1/19f8c1f5671ea6d85fbbac5eb4ac7082.jpg" alt="Pompompurin" class="header-image">
+            <td colspan="2" align="center" bgcolor="#ffffff" cellpadding="0" style="padding: 0;" lineheight="0">
+                <img src="https://i.pinimg.com/1200x/19/f8/c1/19f8c1f5671ea6d85fbbac5eb4ac7082.jpg" alt="Pompompurin" width="100%" height="250" align="bottom">
             </td>
         </tr>
 
         <!-- MAIN MENU -->
         <tr>
-            <td colspan="2" class="menu-section">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
+            <td colspan="2" align="center" bgcolor="#fef9c3">
+                <font color="#854d0e">
+                    <b>
+                        <a href="#home"><font color="#854d0e">Home</font></a> &nbsp; | &nbsp;
+                        <a href="#about"><font color="#854d0e">About</font></a> &nbsp; | &nbsp;
+                        <a href="#gallery"><font color="#854d0e">Gallery</font></a> &nbsp; | &nbsp;
+                        <a href="#contact"><font color="#854d0e">Contact</font></a>
+                    </b>
+                </font>
             </td>
         </tr>
 
         <!-- LAYOUT CONTENT -->
         <tr>
             <!-- SIDEBAR -->
-            <td class="sidebar-section">
-                <h3>Navigation Link</h3>
-                <ul>
-                    <li>👉 <a href="https://satu.usu.ac.id/mahasiswa/home" target="_blank">SATU Mahasiswa</a></li>
-                    <li>👉 <a href="https://kelas.usu.ac.id" target="_blank">Kelas by USU</a></li>
+            <td width="35%" valign="top" bgcolor="#fffbeb">
+                <h3><font color="#854d0e">Navigation Link</font></h3>
+                <hr align="left" width="100%" color="#fef08a">
+                
+                <ul type="disc">
+                    <li>👉 <a href="https://satu.usu.ac.id/mahasiswa/home" target="_blank"><font color="#a16207">SATU Mahasiswa</font></a></li>
+                    <li>👉 <a href="https://kelas.usu.ac.id" target="_blank"><font color="#a16207">Kelas by USU</font></a></li>
                 </ul>
 
-                <div class="sidebar-card">
-                    <b>📌 Quick Note:</b><br>
-                    This portfolio is my very first project built for my Web Programming assignment.
-                </div>
+                <br>
+
+                <table border="1" cellpadding="10" cellspacing="0" width="100%" bgcolor="#ffffff">
+                    <tr>
+                        <td>
+                            <font size="2">
+                                <b>📌 Quick Note:</b><br>
+                                This portfolio is my very first project built for my Web Programming assignment.
+                            </font>
+                        </td>
+                    </tr>
+                </table>
             </td>
 
             <!-- WEB CONTENT -->
-            <td class="content-section">
+            <td width="65%" valign="top" bgcolor="#ffffff">
                 
                 <!-- SECTION: HOME -->
-                <div id="home" class="section-block">
-                    <h1>Putri Andina</h1>
-                    <p>1st Sem IT Student @ USU | Video Editor</p>
-                </div>
+                <a name="home"></a>
+                <h1><font color="#713f12">Putri Andina</font></h1>
+                <p>1st Sem IT Student @ USU | Video Editor</p>
+                
+                <hr color="#fef3c7">
 
                 <!-- SECTION: ABOUT -->
-                <div id="about" class="section-block">
-                    <h2>About</h2>
-                    <p>I am a first-semester Information Technology student at Universitas Sumatera Utara and an alumni of SMA Negeri 1 Medan.</p>
-                    <p>Currently, I am focusing on exploring web development, graphic design, and video editing. Outside of classes, I really enjoy playing musical instruments, as well as spending quality time playing with my younger siblings at home :D</p>
-                    
-                    <h3>Key Skills & Main Interests:</h3>
-                    <ul class="content-list">
-                        <li>Web Development Basics (HTML5 & CSS3)</li>
-                        <li>Video Editing & Content Creation</li>
-                        <li>Time Management & Teamwork</li>
-                        <li>Graphic Design & Visual Arts</li>
-                    </ul>
-                </div>
+                <a name="about"></a>
+                <h2><font color="#854d0e">About</font></h2>
+                <p>I am a first-semester Information Technology student at Universitas Sumatera Utara and an alumni of SMA Negeri 1 Medan.</p>
+                <p>Currently, I am focusing on exploring web development, graphic design, and video editing. Outside of classes, I really enjoy playing musical instruments, as well as spending quality time playing with my younger siblings at home :D</p>
+                
+                <h3><font color="#a16207">Key Skills & Main Interests:</font></h3>
+                <table border="1" cellpadding="10" cellspacing="0" width="100%" bgcolor="#fffde7">
+                    <tr>
+                        <td>
+                            <ul>
+                                <li>Web Development Basics (HTML5 & CSS3)</li>
+                                <li>Video Editing & Content Creation</li>
+                                <li>Time Management & Teamwork</li>
+                                <li>Graphic Design & Visual Arts</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
 
-                <!-- SECTION: GALLERY -->
-                <div id="gallery" class="section-block">
-                    <h2>Gallery</h2>
-                    <p>Bits and pieces of what I love to do <3</p>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <img src="imagea/coding.jpeg" alt="Coding">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="imagea/edit.jpeg" alt="Editing">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="imagea/valo.jpeg" alt="Valorant">
-                        </div>
-                    </div>
-                </div>
+                <br>
+                <hr color="#fef3c7">
+
+             <!-- SECTION: GALLERY -->
+                <a name="gallery"></a>
+                <h2><font color="#854d0e">Gallery</font></h2>
+                <p>Bits and pieces of what I love to do &lt;3</p>
+
+                <table border="1" cellpadding="5" cellspacing="0" align="center" width="100%" bgcolor="#fffde7">
+                 <tr>
+                     <td align="center" width="33%">
+                     <img src="gambar/coding.jpeg" alt="Coding" width="100%" height="150" style="object-fit: cover;">
+              </td>
+                   <td align="center" width="33%">
+                   <img src="gambar/edit.jpeg" alt="Editing" width="100%" height="150" style="object-fit: cover;">
+              </td>
+                         <td align="center" width="33%">
+                    <img src="gambar/valo.jpeg" alt="Valorant" width="100%" height="150" style="object-fit: cover;">
+                         </td>
+                     </tr>
+                </table>    
+
+                <br>
+                <hr color="#fef3c7">
 
                 <!-- SECTION: CONTACT -->
-                <div id="contact" class="section-block">
-                    <h2>Contact Me</h2>
-                    <p>Feel free to get in touch with me!</p>
-                    <div class="contact-box">
-                        <p>📧 <b>Email :</b> <a href="mailto:putriandina@students.usu.ac.id">putriandina@students.usu.ac.id</a></p>
-                        <p>📷 <b>Instagram :</b> <a href="https://www.instagram.com/putriiandinaa" target="_blank">instagram.com/putriiandinaa</a></p>
-                        <p>💻 <b>GitHub :</b> <a href="https://github.com/putcli" target="_blank">github.com/putcli</a></p>
-                    </div>
-                </div>
+                <a name="contact"></a>
+                <h2><font color="#854d0e">Contact Me</font></h2>
+                <p>Feel free to get in touch with me!</p>
+                
+                <table border="1" cellpadding="10" cellspacing="0" width="100%" bgcolor="#fffbeb">
+                    <tr>
+                        <td>
+                            <p>📧 <b>Email :</b> <a href="mailto:putriandina@students.usu.ac.id"><font color="#854d0e">putriandina@students.usu.ac.id</font></a></p>
+                            <p>📷 <b>Instagram :</b> <a href="https://www.instagram.com/putriiandinaa" target="_blank"><font color="#854d0e">instagram.com/putriiandinaa</font></a></p>
+                            <p>💻 <b>GitHub :</b> <a href="https://github.com/putcli" target="_blank"><font color="#854d0e">github.com/putcli</font></a></p>
+                        </td>
+                    </tr>
+                </table>
 
             </td>
         </tr>
 
         <!-- FOOTER -->
         <tr>
-            <td colspan="2" class="footer-section">
-                &copy; 2026 Universitas Sumatera Utara | Tugas Individu Pemrograman Web
+            <td colspan="2" align="center" bgcolor="#fef08a">
+                <font color="#713f12" size="2">
+                    <b>&copy; 2026 Universitas Sumatera Utara | Tugas Individu Pemrograman Web</b>
+                </font>
             </td>
         </tr>
+
     </table>
 
 </body>
