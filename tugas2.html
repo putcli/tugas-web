@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Individu - Form</title>
+    <!-- Ini adalah cara memanggil file CSS eksternal yang diminta -->
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Formulir Pendaftaran</h2>
+        
+        <form action="#" method="POST">
+            <!-- 1. Text -->
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
+            </div>
+
+            <!-- 2. Password -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+            </div>
+
+            <!-- 3. Radio Button -->
+            <div class="form-group">
+                <label>Jenis Kelamin:</label>
+                <div class="radio-group">
+                    <input type="radio" id="pria" name="gender" value="Pria">
+                    <label for="pria">Pria</label>
+                    <input type="radio" id="wanita" name="gender" value="Wanita">
+                    <label for="wanita">Wanita</label>
+                </div>
+            </div>
+
+            <!-- 4. Select Option -->
+            <div class="form-group">
+                <label for="fakultas">Fakultas:</label>
+                <select id="fakultas" name="fakultas">
+                    <option value="">-- Pilih Fakultas --</option>
+                    <option value="ti">Teknologi Informasi</option>
+                    <option value="ilkom">Ilmu Komputer</option>
+                </select>
+            </div>
+
+            <!-- 5. Checkbox -->
+            <div class="form-group">
+                <label>Hobi (Bisa pilih lebih dari satu):</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="bermain game" name="hobi" value="Bermain Game">
+                    <label for="bermain game">Bermain Game</label>
+                    <input type="checkbox" id="coding" name="hobi" value="Coding">
+                    <label for="coding">Coding</label>
+                    <input type="checkbox" id="olahraga" name="hobi" value="Olahraga">
+                    <label for="olahraga">Olahraga</label>
+                </div>
+            </div>
+
+            <!-- 6. Textarea -->
+            <div class="form-group">
+                <label for="alamat">Alamat Lengkap:</label>
+                <textarea id="alamat" name="alamat" rows="4" placeholder="Masukkan alamat Anda"></textarea>
+            </div>
+
+            <!-- 7. Submit Button -->
+            <div class="form-group">
+                <input type="submit" value="Kirim Data">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

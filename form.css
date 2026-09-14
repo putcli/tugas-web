@@ -1,0 +1,125 @@
+/* Mengatur font dasar dan background halaman */
+body {
+    /* Menggunakan font yang membulat agar lebih imut */
+    font-family: 'Quicksand', 'Segoe UI', Tahoma, sans-serif;
+    background-color: #FFFDE7; /* Kuning pastel sangat muda / warna krem */
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: #5D4037; /* Warna teks cokelat karamel lembut */
+}
+
+/* Mempercantik kotak form (Container) */
+.container {
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 20px; /* Sudut lebih membulat biar terkesan cute */
+    box-shadow: 0px 8px 20px rgba(255, 213, 79, 0.2); /* Bayangan kekuningan yang tipis */
+    width: 100%;
+    max-width: 450px;
+    border: 2px solid #FFF59D; /* Garis pinggir kuning pastel */
+}
+
+h2 {
+    text-align: center;
+    color: #5D4037; /* Kuning yang sedikit lebih gelap untuk judul agar terbaca */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Memberi jarak antar elemen form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #795548;
+}
+
+/* Modifikasi elemen input */
+input[type="text"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #FFF9C4;
+    border-radius: 12px; /* Sudut membulat di kotak isian */
+    box-sizing: border-box; 
+    font-family: inherit;
+    background-color: #FFFEFA;
+    color: #5D4037;
+    transition: all 0.3s ease; /* Animasi halus saat diklik */
+}
+
+/* Modifikasi fokus saat kotak isian diklik */
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #FDD835; /* Garis jadi lebih kuning saat diklik */
+    outline: none;
+    box-shadow: 0 0 8px rgba(253, 216, 53, 0.3);
+    background-color: #FFFFFF;
+}
+
+/* Menata radio dan checkbox agar sebaris */
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.radio-group label, .checkbox-group label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+/* Modifikasi tombol Submit yang imut */
+input[type="submit"] {
+    width: 100%;
+    background-color: #FFD54F; /* Tombol kuning pastel utama */
+    color: #5D4037;
+    padding: 14px;
+    border: none;
+    border-radius: 15px; /* Tombol sangat membulat */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(255, 213, 79, 0.4);
+}
+
+/* Efek saat mouse diarahkan ke tombol */
+input[type="submit"]:hover {
+    background-color: #FFCA28;
+    transform: translateY(-3px); /* Efek tombol sedikit melompat naik */
+    box-shadow: 0px 6px 12px rgba(255, 213, 79, 0.6);
+}
+
+/* Modifikasi khusus untuk elemen select (dropdown) */
+select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #FFF9C4;
+    border-radius: 12px;
+    box-sizing: border-box; 
+    font-family: inherit;
+    background-color: #FFFEFA;
+    color: #5D4037;
+    transition: all 0.3s ease;
+    
+    /* Perbaikan agar lebih natural */
+    cursor: pointer; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /* Menghilangkan ikon panah bawaan browser */
+    
+    /* Menambahkan panah kustom warna cokelat yang senada dengan teks */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23795548" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
