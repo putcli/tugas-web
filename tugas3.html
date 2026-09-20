@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Individu - Aritmatika</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 350px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #e0f2f1; 
+        }
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+        .input-group input {
+            width: 150px;
+            padding: 5px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-right: 5px;
+        }
+        button {
+            padding: 5px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .output-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .output-group input {
+            width: 150px;
+            padding: 5px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="input-group">
+        <label for="bil1">Input Bilangan 1</label>
+        <input type="number" id="bil1" placeholder="0">
+    </div>
+    
+    <div class="input-group">
+        <label for="bil2">Input Bilangan 2</label>
+        <input type="number" id="bil2" placeholder="0">
+    </div>
+
+    <div class="button-group">
+        <button onclick="hitung('+')">+</button>
+        <button onclick="hitung('-')">-</button>
+        <button onclick="hitung('*')">x</button>
+        <button onclick="hitung('/')">/</button>
+    </div>
+
+    <div class="output-group">
+        <label for="hasil">Output</label>
+        <input type="text" id="hasil" readonly>
+    </div>
+</div>
+
+<script>
+    // Fungsi utama untuk melakukan perhitungan
+    function hitung(operator) {
+        // 1. Ambil elemen input berdasarkan ID
+        let inputBil1 = document.getElementById('bil1').value;
+        let inputBil2 = document.getElementById('bil2').value;
+
+        // 2. Ubah nilai yang awalnya teks (string) menjadi angka desimal (float)
+        let angka1 = parseFloat(inputBil1);
+        let angka2 = parseFloat(inputBil2);
+        let hasil = 0;
+
+        // Validasi: Cek apakah inputan kosong atau bukan angka
+        if (isNaN(angka1) || isNaN(angka2)) {
+            alert("Harap masukkan kedua bilangan terlebih dahulu!");
+            return; // Hentikan eksekusi kode di sini
+        }
+
+        // 3. Lakukan perhitungan berdasarkan parameter 'operator'
+        if (operator === '+') {
+            hasil = angka1 + angka2;
+        } else if (operator === '-') {
+            hasil = angka1 - angka2;
+        } else if (operator === '*') {
+            hasil = angka1 * angka2;
+        } else if (operator === '/') {
+            // Pencegahan error jika dibagi dengan nol
+            if (angka2 === 0) {
+                alert("Bilangan tidak bisa dibagi dengan nol!");
+                return;
+            }
+            hasil = angka1 / angka2;
+        }
+
+        document.getElementById('hasil').value = hasil;
+    }
+</script>
+
+</body>
+</html>
