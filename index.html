@@ -2,144 +2,539 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tugas Individu - Putri Andina 261402036</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Putri Andina</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Fredoka & Quicksand -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-cream-light: #fff9db;
+            --bg-cream-main: #ffffff;
+            --bg-pastel-yellow: #fde8a9;
+            --bg-accent-gold: #f7d274;
+            --text-brown-dark: #523318;
+            --text-brown-soft: #7a5229;
+            --border-soft-gold: #e5cb87;
+            --card-shadow: 0 10px 25px rgba(82, 51, 24, 0.08);
+        }
+
+        /* Hilangkan overflow horizontal untuk animasi floating */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-cream-light);
+            color: var(--text-brown-dark);
+        }
+
+        h1, h2, h3, h4, h5, h6, .brand-font {
+            font-family: 'Fredoka', cursive;
+            color: var(--text-brown-dark);
+        }
+
+        /* POLKADOT BACKGROUND (TANPA WARNA PUTIH SAMA SEKALI) */
+        .polkadot-bg {
+            background-color: #fff8df;
+            background-image: radial-gradient(#ebd08d 18%, transparent 18%);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+        }
+
+        /* TOP BANNER */
+        .top-banner {
+            background-color: var(--bg-pastel-yellow);
+            color: var(--text-brown-dark);
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 2px dashed var(--border-soft-gold);
+        }
+
+        /* NAVBAR & HEADER (CREAM/YELLOW PASTEL) */
+        .navbar-custom {
+            background-color: var(--bg-cream-main);
+            border-bottom: 3px solid var(--border-soft-gold);
+            padding: 0.8rem 1rem;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--text-brown-dark) !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            color: var(--text-brown-soft) !important;
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 8px 16px !important;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text-brown-dark) !important;
+            background-color: var(--bg-pastel-yellow);
+        }
+
+        /* SEARCH INPUT - MENGELIMINASI WARNA PUTIH */
+        .search-box-custom {
+            background-color: #fff1c1 !important;
+            border: 2px solid var(--border-soft-gold) !important;
+            color: var(--text-brown-dark) !important;
+            border-radius: 25px;
+            padding-left: 18px;
+            padding-right: 40px;
+        }
+
+        .search-box-custom::placeholder {
+            color: #a37c54;
+        }
+
+        .search-box-custom:focus {
+            background-color: #ffedb3 !important;
+            box-shadow: 0 0 0 0.25rem rgba(229, 203, 135, 0.5) !important;
+        }
+
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-icon-btn {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: var(--text-brown-soft);
+        }
+
+        /* HERO SECTION CONTAINER */
+        .hero-section {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        /* WRAPPER FOTO UTAMA - PASTI DI TENGAH (CENTERED) */
+        .photo-center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px 0;
+        }
+
+        .photo-floating-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+            max-width: 90%;
+        }
+
+        /* ELEMEN FOTO UTAMA */
+        .hero-img-main {
+            width: 100%;
+            max-width: 850px;
+            height: auto;
+            border-radius: 24px;
+            border: 5px solid #ebd08d;
+            box-shadow: 0 15px 35px rgba(82, 51, 24, 0.15);
+            background-color: var(--bg-cream-main);
+            display: block;
+        }
+
+        /* OBJEK PNG BERGERAK (FLOATING OBJECTS) */
+        .floating-obj {
+            position: absolute;
+            z-index: 12;
+            pointer-events: auto; /* Memungkinkan interaksi jika diperlukan */
+            width: 90px;
+            height: auto;
+            filter: drop-shadow(0px 8px 12px rgba(82, 51, 24, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .floating-obj:hover {
+            transform: scale(1.15) !important;
+        }
+
+        /* POSISI KIRI ATAS */
+        .obj-top-left {
+            top: -20px;
+            left: -20px;
+            animation: floatAnimation1 3.2s ease-in-out infinite;
+        }
+
+        /* POSISI KANAN BAWAH */
+        .obj-bottom-right {
+            bottom: -20px;
+            right: -20px;
+            animation: floatAnimation2 3.8s ease-in-out infinite;
+        }
+
+        /* ANIMASI CSS FLOATING / BOUNCING */
+        @keyframes floatAnimation1 {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-16px) rotate(-10deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        @keyframes floatAnimation2 {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-14px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        /* PASTEL CARDS & CONTAINERS (BASKING IN CREAM PASTELS) */
+        .pastel-card {
+            background-color: var(--bg-cream-main) !important;
+            border: 2px solid var(--border-soft-gold) !important;
+            border-radius: 20px !important;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .pastel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(82, 51, 24, 0.12);
+        }
+
+        .pastel-btn {
+            background-color: var(--bg-pastel-yellow);
+            color: var(--text-brown-dark);
+            font-weight: 700;
+            border: 2px solid var(--border-soft-gold);
+            border-radius: 15px;
+            padding: 10px 24px;
+            transition: all 0.25s ease;
+        }
+
+        .pastel-btn:hover {
+            background-color: var(--bg-accent-gold);
+            color: var(--text-brown-dark);
+            transform: scale(1.03);
+        }
+
+        .form-control-pastel {
+            background-color: #fff1c1 !important;
+            border: 2px solid var(--border-soft-gold) !important;
+            color: var(--text-brown-dark) !important;
+            border-radius: 12px;
+        }
+
+        .form-control-pastel:focus {
+            background-color: #ffedb3 !important;
+            box-shadow: 0 0 0 0.25rem rgba(229, 203, 135, 0.4) !important;
+        }
+
+        .footer-custom {
+            background-color: var(--bg-pastel-yellow);
+            border-top: 3px solid var(--border-soft-gold);
+            color: var(--text-brown-dark);
+            padding: 2rem 0;
+        }
+
+        /* MOBILE RESPONSIVE OPTIMIZATIONS */
+        @media (max-width: 576px) {
+            .floating-obj {
+                width: 60px;
+            }
+            .obj-top-left {
+                top: -15px;
+                left: -15px;
+            }
+            .obj-bottom-right {
+                bottom: -15px;
+                right: -15px;
+            }
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+            .hero-img-main {
+                border-width: 3px;
+            }
+        }
+    </style>
 </head>
-<body bgcolor="#fdfbf7" text="#4a4a4a">
+<body>
 
-    <table border="1" cellpadding="15" cellspacing="0" align="center" width="950" bgcolor="#ffffff">
-        
-        <!-- HEADER -->
-        <tr>
-            <td colspan="2" align="center" bgcolor="#ffffff" cellpadding="0" style="padding: 0;" lineheight="0">
-                <img src="https://i.pinimg.com/1200x/19/f8/c1/19f8c1f5671ea6d85fbbac5eb4ac7082.jpg" alt="Pompompurin" width="100%" height="250" align="bottom">
-            </td>
-        </tr>
+    <!-- TOP ANNOUNCEMENT BANNER -->
+    <div class="top-banner text-center py-2 px-3">
+        ✦ WELCOME TO MY CREATIVE SPACE & PORTFOLIO! ✦
+    </div>
 
-        <!-- MAIN MENU -->
-        <tr>
-            <td colspan="2" align="center" bgcolor="#fef9c3">
-                <font color="#854d0e">
-                    <b>
-                        <a href="#home"><font color="#854d0e">Home</font></a> &nbsp; | &nbsp;
-                        <a href="#about"><font color="#854d0e">About</font></a> &nbsp; | &nbsp;
-                        <a href="#gallery"><font color="#854d0e">Gallery</font></a> &nbsp; | &nbsp;
-                        <a href="#contact"><font color="#854d0e">Contact</font></a>
-                    </b>
-                </font>
-            </td>
-        </tr>
+    <!-- NAVBAR (PASTEL YELLOW/CREAM) -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand brand-font" href="#">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
+                    <!-- Pudding Icon -->
+                    <path d="M20 70 L30 35 C32 30, 68 30, 70 35 L80 70 Z" fill="#f7d274" stroke="#523318" stroke-width="5"/>
+                    <path d="M30 35 L70 35 L65 20 L35 20 Z" fill="#523318"/>
+                    <circle cx="50" cy="18" r="8" fill="#e74c3c"/>
+                    <ellipse cx="50" cy="72" rx="35" ry="8" fill="#e5cb87"/>
+                </svg>
+                PORTFOLIO
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" style="background-color: var(--bg-pastel-yellow);">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- LAYOUT CONTENT -->
-        <tr>
-            <!-- SIDEBAR -->
-            <td width="35%" valign="top" bgcolor="#fffbeb">
-                <h3><font color="#854d0e">Navigation Link</font></h3>
-                <hr align="left" width="100%" color="#fef08a">
-                
-                <ul type="disc">
-                    <li>👉 <a href="https://satu.usu.ac.id/mahasiswa/home" target="_blank"><font color="#a16207">SATU Mahasiswa</font></a></li>
-                    <li>👉 <a href="https://kelas.usu.ac.id" target="_blank"><font color="#a16207">Kelas by USU</font></a></li>
-                    <li>👉 <a href="tugas2.html" target="_blank"><font color="#a16207">Tugas 2 Form</font></a></li>
-                    <li>👉 <a href="tugas3.html" target="_blank"><font color="#a16207">Tugas 3 Aritmatika</font></a></li>
-                </ul>
+<div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+        <li class="nav-item">
+            <a class="nav-link nav-link-custom active" href="#home">HOME</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#projects">PROJECTS</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#aboutme">ABOUT ME</a> 
+        </li>
+        <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#contact">CONTACT</a>
+        </li>
+    </ul>
+</div> 
 
-                <br>
+                <!-- SEARCH BOX (SOFT PASTEL CREAM) -->
+                <div class="search-wrapper d-flex align-items-center me-3 my-2 my-lg-0">
+                    <input type="text" class="form-control search-box-custom" placeholder="Search..." aria-label="Search">
+                    <button class="search-icon-btn" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
 
-                <table border="1" cellpadding="10" cellspacing="0" width="100%" bgcolor="#ffffff">
-                    <tr>
-                        <td>
-                            <font size="2">
-                                <b>📌 Quick Note:</b><br>
-                                This portfolio is my very first project built for my Web Programming assignment.
-                            </font>
-                        </td>
-                    </tr>
-                </table>
-            </td>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-sm pastel-btn"><i class="fas fa-user-plus me-1"></i> Account</button>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-            <!-- WEB CONTENT -->
-            <td width="65%" valign="top" bgcolor="#ffffff">
-                
-                <!-- SECTION: HOME -->
-                <a name="home"></a>
-                <h1><font color="#713f12">Putri Andina</font></h1>
-                <p>1st Sem IT Student @ USU | Video Editor</p>
-                
-                <hr color="#fef3c7">
+    <!-- HERO SECTION WITH POLKADOT BG -->
+    <section id="home" class="polkadot-bg hero-section">
+        <div class="container">
 
-                <!-- SECTION: ABOUT -->
-                <a name="about"></a>
-                <h2><font color="#854d0e">About</font></h2>
-                <p>I am a first-semester Information Technology student at Universitas Sumatera Utara and an alumni of SMA Negeri 1 Medan.</p>
-                <p>Currently, I am focusing on exploring web development, graphic design, and video editing. Outside of classes, I really enjoy playing musical instruments, as well as spending quality time playing with my younger siblings at home :D</p>
-                
-                <h3><font color="#a16207">Key Skills & Main Interests:</font></h3>
-                <table border="1" cellpadding="10" cellspacing="0" width="100%" bgcolor="#fffde7">
-                    <tr>
-                        <td>
-                            <ul>
-                                <li>Web Development Basics (HTML5 & CSS3)</li>
-                                <li>Video Editing & Content Creation</li>
-                                <li>Time Management & Teamwork</li>
-                                <li>Graphic Design & Visual Arts</li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
+            <!-- PHOTO WRAPPER - DIPASTIKAN TEPAT DI TENGAH (CENTERED) -->
+            <div class="photo-center-container">
+                <div class="photo-floating-wrapper">
 
-                <br>
-                <hr color="#fef3c7">
+                    <!-- 1. OBJEK PNG KIRI ATAS BERGERAK -->
+                    <!-- BISA DIGANTI: <img src="objek-kiri.png" class="floating-obj obj-top-left" alt="Objek Kiri"> -->
+                    <div class="floating-obj obj-top-left">
+                       <img src="gambar/muffin.png" class="floating-obj obj-top-left" alt="Objek Kiri">
+                        </svg>
+                    </div>
 
-             <!-- SECTION: GALLERY -->
-                <a name="gallery"></a>
-                <h2><font color="#854d0e">Gallery</font></h2>
-                <p>Bits and pieces of what I love to do &lt;3</p>
+                    <!-- 2. FOTO UTAMA KAMU (DIPOSISIKAN PRESISI DI TENGAH) -->
+                    <img src="gambar/Korilakkuma.jpeg" onerror="this.src='https://placehold.co/600x400/fde8a9/523318?text=Pompompurin+Amusement+Park'" class="hero-img-main" alt="Pompompurin Playground">
 
-                <table border="1" cellpadding="5" cellspacing="0" align="center" width="100%" bgcolor="#fffde7">
-                 <tr>
-                     <td align="center" width="33%">
-                     <img src="gambar/coding.jpeg" alt="Coding" width="100%" height="150" style="object-fit: cover;">
-              </td>
-                   <td align="center" width="33%">
-                   <img src="gambar/edit.jpeg" alt="Editing" width="100%" height="150" style="object-fit: cover;">
-              </td>
-                         <td align="center" width="33%">
-                    <img src="gambar/valo.jpeg" alt="Valorant" width="100%" height="150" style="object-fit: cover;">
-                         </td>
-                     </tr>
-                </table>    
+                    <!-- 3. OBJEK PNG KANAN BAWAH BERGERAK -->
+                    <!-- BISA DIGANTI: <img src="objek-kanan.png" class="floating-obj obj-bottom-right" alt="Objek Kanan"> -->
+                    <div class="floating-obj obj-bottom-right">
+                        <svg viewBox="0 0 100 100" width="100%" height="100%">
+                            <img src="gambar/puding.png" class="floating-obj obj-bottom-right" alt="Objek Kanan">
+                        </svg>
+                    </div>
 
-                <br>
-                <hr color="#fef3c7">
+                </div>
+            </div>
 
-                <!-- SECTION: CONTACT -->
-                <a name="contact"></a>
-                <h2><font color="#854d0e">Contact Me</font></h2>
-                <p>Feel free to get in touch with me!</p>
-                
-                <table border="1" cellpadding="10" cellspacing="0" width="100%" bgcolor="#fffbeb">
-                    <tr>
-                        <td>
-                            <p>📧 <b>Email :</b> <a href="mailto:putriandina@students.usu.ac.id"><font color="#854d0e">putriandina@students.usu.ac.id</font></a></p>
-                            <p>📷 <b>Instagram :</b> <a href="https://www.instagram.com/putriiandinaa" target="_blank"><font color="#854d0e">instagram.com/putriiandinaa</font></a></p>
-                            <p>💻 <b>GitHub :</b> <a href="https://github.com/putcli" target="_blank"><font color="#854d0e">github.com/putcli</font></a></p>
-                        </td>
-                    </tr>
-                </table>
+            <!-- HEADING TEXT BELOW HERO PHOTO -->
+            <div class="mt-4">
+                <h1 class="brand-font display-5 mb-2">✦ PUTRI ANDINA ✦</h1>
+                <p class="lead mx-auto text-brown-soft" style="max-width: 650px; font-weight: 600;">
+                   1st Sem IT Student @ USU | Video Editor | Web Designer
+                </p>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                    <a href="#projects" class="btn pastel-btn"><i class="fas fa-book-open me-2"></i>Open Projects</a>
+                    <a href="#aboutme" class="btn pastel-btn"><i class="fas fa-heart me-2"></i>About Me</a>
+                </div>
+            </div>
 
-            </td>
-        </tr>
+        </div>
+    </section>
 
-        <!-- FOOTER -->
-        <tr>
-            <td colspan="2" align="center" bgcolor="#fef08a">
-                <font color="#713f12" size="2">
-                    <b>&copy; 2026 Universitas Sumatera Utara | Tugas Individu Pemrograman Web</b>
-                </font>
-            </td>
-        </tr>
+    <!-- PROJECTS SECTION (CREAM PASTEL CARDS) -->
+    <section id="projects" class="py-5" style="background-color: var(--bg-cream-light);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="brand-font fs-1">PROJECT LIST</h2>
+                <div class="mx-auto" style="width: 80px; height: 4px; background-color: var(--border-soft-gold); border-radius: 2px;"></div>
+            </div>
 
-    </table>
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card pastel-card h-100 p-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge px-3 py-2" style="background-color: var(--bg-pastel-yellow); color: var(--text-brown-dark); border-radius: 10px; font-weight: 700;">HTML</span>
+                                <small style="color: var(--text-brown-soft); font-weight: 600;">26 Aug 2026</small>
+                            </div>
+                            <h4 class="card-title brand-font">HTML Table Layout</h4>
+                            <p class="card-text text-brown-soft">Creating a structured and responsive HTML table with soft pastel styling accents</p>
+                            <a href="tugas1.html" target="_blank" class="btn btn-sm pastel-btn w-100 mt-2 text-decoration-none d-block text-center">View Project</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card pastel-card h-100 p-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge px-3 py-2" style="background-color: var(--bg-pastel-yellow); color: var(--text-brown-dark); border-radius: 10px; font-weight: 700;">Web Form</span>
+                                <small style="color: var(--text-brown-soft); font-weight: 600;">2 Sep 2026</small>
+                            </div>
+                            <h4 class="card-title brand-font">Interactive Web Form</h4>
+                            <p class="card-text text-brown-soft">Building a web registration form with CSS styling and input validation</p>
+                            <a href="tugas2.html" target="_blank" class="btn btn-sm pastel-btn w-100 mt-2 text-decoration-none d-block text-center">View Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card pastel-card h-100 p-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge px-3 py-2" style="background-color: var(--bg-pastel-yellow); color: var(--text-brown-dark); border-radius: 10px; font-weight: 700;">JavaScript</span>
+                                <small style="color: var(--text-brown-soft); font-weight: 600;">16 Sep 2026</small>
+                            </div>
+                            <h4 class="card-title brand-font">Arithmetic Calculator</h4>
+                            <p class="card-text text-brown-soft">Developing a simple JavaScript program to execute basic arithmetic operations</p>
+                            <a href="tugas3.html" target="_blank" class="btn btn-sm pastel-btn w-100 mt-2 text-decoration-none d-block text-center">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="aboutme" class="py-5 polkadot-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card pastel-card p-4 p-md-5 text-center">
+                        <div class="mb-3">
+                            <span class="fs-1">🍮</span>
+                        </div>
+                        <h2 class="brand-font mb-3">ABOUT ME</h2>
+                        <p class="fs-5 text-brown-soft mb-4">
+                           I am a first-semester Information Technology student at Universitas Sumatera Utara and an alumni of SMA Negeri 1 Medan.
+                        </p>
+                        <div class="row g-3 text-start">
+                            <div class="col-6 col-md-3">
+                                <div class="p-3 rounded-3 text-center" style="background-color: #fff1c1; border: 1px solid var(--border-soft-gold);">
+                                    <div class="fw-bold">Hobby</div>
+                                    <small>Playing Games</small>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="p-3 rounded-3 text-center" style="background-color: #fff1c1; border: 1px solid var(--border-soft-gold);">
+                                    <div class="fw-bold">Food</div>
+                                    <small>Pudding</small>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="p-3 rounded-3 text-center" style="background-color: #fff1c1; border: 1px solid var(--border-soft-gold);">
+                                    <div class="fw-bold">Color</div>
+                                    <small>Yellow</small>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="p-3 rounded-3 text-center" style="background-color: #fff1c1; border: 1px solid var(--border-soft-gold);">
+                                    <div class="fw-bold">Friends</div>
+                                    <small>Everyone!</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-5" style="background-color: var(--bg-cream-light);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card pastel-card p-4">
+                        <h3 class="brand-font text-center mb-4"><i class="fas fa-envelope me-2"></i>SEND MESSAGE</h3>
+                        <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Name</label>
+                                <input type="text" class="form-control form-control-pastel" placeholder="Enter your name..." required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Email</label>
+                                <input type="email" class="form-control form-control-pastel" placeholder="name@email.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Message</label>
+                                <textarea class="form-control form-control-pastel" rows="4" placeholder="Write your message here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn pastel-btn w-100"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-custom text-center">
+        <div class="container">
+            <p class="mb-1 fw-bold">✦ Made with Warmth and Love ✦</p>
+            <small>&copy; 2026 Universitas Sumatera Utara | Tugas Individu Pemrograman Web</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    
 </body>
 </html>
+
+<!-- SCRIPT JAVASCRIPT UNTUK MENUTUP MENU AUTOMATIS DI HP & SMOOTH SCROLL -->
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Menutup menu hamburger otomatis setelah diklik (di HP)
+                const navbarCollapse = document.getElementById('navbarContent');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            });
+        });
