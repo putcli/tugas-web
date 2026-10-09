@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Putri Andina</title>
 
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts: Fredoka & Quicksand -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -26,7 +23,6 @@
             --card-shadow: 0 10px 25px rgba(82, 51, 24, 0.08);
         }
 
-        /* Hilangkan overflow horizontal untuk animasi floating */
         html, body {
             overflow-x: hidden;
             width: 100%;
@@ -40,7 +36,6 @@
             color: var(--text-brown-dark);
         }
 
-        /* POLKADOT BACKGROUND (TANPA WARNA PUTIH SAMA SEKALI) */
         .polkadot-bg {
             background-color: #fff8df;
             background-image: radial-gradient(#ebd08d 18%, transparent 18%);
@@ -48,7 +43,6 @@
             background-position: 0 0, 14px 14px;
         }
 
-        /* TOP BANNER */
         .top-banner {
             background-color: var(--bg-pastel-yellow);
             color: var(--text-brown-dark);
@@ -58,7 +52,6 @@
             border-bottom: 2px dashed var(--border-soft-gold);
         }
 
-        /* NAVBAR & HEADER (CREAM/YELLOW PASTEL) */
         .navbar-custom {
             background-color: var(--bg-cream-main);
             border-bottom: 3px solid var(--border-soft-gold);
@@ -87,7 +80,6 @@
             background-color: var(--bg-pastel-yellow);
         }
 
-        /* SEARCH INPUT - MENGELIMINASI WARNA PUTIH */
         .search-box-custom {
             background-color: #fff1c1 !important;
             border: 2px solid var(--border-soft-gold) !important;
@@ -120,13 +112,11 @@
             color: var(--text-brown-soft);
         }
 
-        /* HERO SECTION CONTAINER */
         .hero-section {
             padding: 3rem 1rem;
             text-align: center;
         }
 
-        /* WRAPPER FOTO UTAMA - PASTI DI TENGAH (CENTERED) */
         .photo-center-container {
             display: flex;
             justify-content: center;
@@ -143,7 +133,6 @@
             max-width: 90%;
         }
 
-        /* ELEMEN FOTO UTAMA */
         .hero-img-main {
             width: 100%;
             max-width: 850px;
@@ -155,11 +144,10 @@
             display: block;
         }
 
-        /* OBJEK PNG BERGERAK (FLOATING OBJECTS) */
         .floating-obj {
             position: absolute;
             z-index: 12;
-            pointer-events: auto; /* Memungkinkan interaksi jika diperlukan */
+            pointer-events: auto; 
             width: 90px;
             height: auto;
             filter: drop-shadow(0px 8px 12px rgba(82, 51, 24, 0.2));
@@ -170,21 +158,18 @@
             transform: scale(1.15) !important;
         }
 
-        /* POSISI KIRI ATAS */
         .obj-top-left {
             top: -20px;
             left: -20px;
             animation: floatAnimation1 3.2s ease-in-out infinite;
         }
 
-        /* POSISI KANAN BAWAH */
         .obj-bottom-right {
             bottom: -20px;
             right: -20px;
             animation: floatAnimation2 3.8s ease-in-out infinite;
         }
 
-        /* ANIMASI CSS FLOATING / BOUNCING */
         @keyframes floatAnimation1 {
             0% {
                 transform: translateY(0px) rotate(0deg);
@@ -209,7 +194,6 @@
             }
         }
 
-        /* PASTEL CARDS & CONTAINERS (BASKING IN CREAM PASTELS) */
         .pastel-card {
             background-color: var(--bg-cream-main) !important;
             border: 2px solid var(--border-soft-gold) !important;
@@ -258,7 +242,6 @@
             padding: 2rem 0;
         }
 
-        /* MOBILE RESPONSIVE OPTIMIZATIONS */
         @media (max-width: 576px) {
             .floating-obj {
                 width: 60px;
@@ -282,17 +265,14 @@
 </head>
 <body>
 
-    <!-- TOP ANNOUNCEMENT BANNER -->
     <div class="top-banner text-center py-2 px-3">
         ✦ WELCOME TO MY CREATIVE SPACE & PORTFOLIO! ✦
     </div>
 
-    <!-- NAVBAR (PASTEL YELLOW/CREAM) -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
             <a class="navbar-brand brand-font" href="#">
                 <svg width="32" height="32" viewBox="0 0 100 100" fill="none">
-                    <!-- Pudding Icon -->
                     <path d="M20 70 L30 35 C32 30, 68 30, 70 35 L80 70 Z" fill="#f7d274" stroke="#523318" stroke-width="5"/>
                     <path d="M30 35 L70 35 L65 20 L35 20 Z" fill="#523318"/>
                     <circle cx="50" cy="18" r="8" fill="#e74c3c"/>
@@ -322,7 +302,6 @@
     </ul>
 </div> 
 
-                <!-- SEARCH BOX (SOFT PASTEL CREAM) -->
                 <div class="search-wrapper d-flex align-items-center me-3 my-2 my-lg-0">
                     <input type="text" class="form-control search-box-custom" placeholder="Search..." aria-label="Search">
                     <button class="search-icon-btn" type="button">
@@ -337,26 +316,19 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION WITH POLKADOT BG -->
     <section id="home" class="polkadot-bg hero-section">
         <div class="container">
 
-            <!-- PHOTO WRAPPER - DIPASTIKAN TEPAT DI TENGAH (CENTERED) -->
             <div class="photo-center-container">
                 <div class="photo-floating-wrapper">
 
-                    <!-- 1. OBJEK PNG KIRI ATAS BERGERAK -->
-                    <!-- BISA DIGANTI: <img src="objek-kiri.png" class="floating-obj obj-top-left" alt="Objek Kiri"> -->
                     <div class="floating-obj obj-top-left">
                        <img src="gambar/muffin.png" class="floating-obj obj-top-left" alt="Objek Kiri">
                         </svg>
                     </div>
 
-                    <!-- 2. FOTO UTAMA KAMU (DIPOSISIKAN PRESISI DI TENGAH) -->
                     <img src="gambar/Korilakkuma.jpeg" onerror="this.src='https://placehold.co/600x400/fde8a9/523318?text=Pompompurin+Amusement+Park'" class="hero-img-main" alt="Pompompurin Playground">
 
-                    <!-- 3. OBJEK PNG KANAN BAWAH BERGERAK -->
-                    <!-- BISA DIGANTI: <img src="objek-kanan.png" class="floating-obj obj-bottom-right" alt="Objek Kanan"> -->
                     <div class="floating-obj obj-bottom-right">
                         <svg viewBox="0 0 100 100" width="100%" height="100%">
                             <img src="gambar/puding.png" class="floating-obj obj-bottom-right" alt="Objek Kanan">
@@ -366,7 +338,6 @@
                 </div>
             </div>
 
-            <!-- HEADING TEXT BELOW HERO PHOTO -->
             <div class="mt-4">
                 <h1 class="brand-font display-5 mb-2">✦ PUTRI ANDINA ✦</h1>
                 <p class="lead mx-auto text-brown-soft" style="max-width: 650px; font-weight: 600;">
@@ -381,7 +352,6 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION (CREAM PASTEL CARDS) -->
     <section id="projects" class="py-5" style="background-color: var(--bg-cream-light);">
         <div class="container">
             <div class="text-center mb-5">
@@ -390,7 +360,6 @@
             </div>
 
             <div class="row g-4">
-                <!-- Card 1 -->
                 <div class="col-md-4">
                     <div class="card pastel-card h-100 p-3">
                         <div class="card-body">
@@ -405,7 +374,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="col-md-4">
                     <div class="card pastel-card h-100 p-3">
                         <div class="card-body">
@@ -438,7 +406,6 @@
         </div>
     </section>
 
-    <!-- ABOUT ME SECTION -->
     <section id="aboutme" class="py-5 polkadot-bg">
         <div class="container">
             <div class="row justify-content-center">
@@ -483,35 +450,64 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-5" style="background-color: var(--bg-cream-light);">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card pastel-card p-4">
-                        <h3 class="brand-font text-center mb-4"><i class="fas fa-envelope me-2"></i>SEND MESSAGE</h3>
-                        <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Name</label>
-                                <input type="text" class="form-control form-control-pastel" placeholder="Enter your name..." required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Email</label>
-                                <input type="email" class="form-control form-control-pastel" placeholder="name@email.com" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Message</label>
-                                <textarea class="form-control form-control-pastel" rows="4" placeholder="Write your message here..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn pastel-btn w-100"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
-                        </form>
+   <section id="contact" class="py-5" style="background-color: var(--bg-cream-light);">
+    <div class="container">
+        <h3 class="brand-font text-center mb-4"><i class="fas fa-heart me-2"></i>GET IN TOUCH</h3>
+        
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-md-4 col-sm-6">
+                <div class="card pastel-card p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge-pastel">Social Media</span>
+                            <i class="fab fa-instagram text-muted"></i>
+                        </div>
+                        <h4 class="brand-font mb-2">Instagram</h4>
+                        <p class="text-muted small mb-4">@putriiandinaa</p>
                     </div>
+                    <a href="https://instagram.com/putriiandinaa" target="_blank" class="btn pastel-btn w-100" style="font-weight: 500; font-size: 0.95rem; padding: 10px 16px;">
+                        <i class="fab fa-instagram me-1"></i> Visit Profile
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FOOTER -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card pastel-card p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge-pastel">Email</span>
+                            <i class="fas fa-envelope text-muted"></i>
+                        </div>
+                        <h4 class="brand-font mb-2">Email</h4>
+                        <p class="text-muted small mb-4">putriandina@students.usu.ac.id</p>
+                    </div>
+                    <a href="mailto:putriandina@students.usu.ac.id" class="btn pastel-btn w-100" style="font-weight: 500; font-size: 0.95rem; padding: 10px 16px;">
+                        <i class="fas fa-paper-plane me-1"></i> Send Email
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="card pastel-card p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="badge-pastel">Repository</span>
+                            <i class="fab fa-github text-muted"></i>
+                        </div>
+                        <h4 class="brand-font mb-2">GitHub</h4>
+                        <p class="text-muted small mb-4">github.com/putcli</p>
+                    </div>
+                    <a href="https://github.com/putcli" target="_blank" class="btn pastel-btn w-100" style="font-weight: 500; font-size: 0.95rem; padding: 10px 16px;">
+                        <i class="fab fa-github me-1"></i> Visit GitHub
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+    
     <footer class="footer-custom text-center">
         <div class="container">
             <p class="mb-1 fw-bold">✦ Made with Warmth and Love ✦</p>
@@ -519,18 +515,15 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     
 </body>
 </html>
 
-<!-- SCRIPT JAVASCRIPT UNTUK MENUTUP MENU AUTOMATIS DI HP & SMOOTH SCROLL -->
     <script>
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function (e) {
-                // Menutup menu hamburger otomatis setelah diklik (di HP)
                 const navbarCollapse = document.getElementById('navbarContent');
                 if (navbarCollapse.classList.contains('show')) {
                     const bsCollapse = new bootstrap.Collapse(navbarCollapse);
